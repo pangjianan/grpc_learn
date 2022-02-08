@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "grpc_learn/geteway/proto;echo";
+
+package echo;
+
+import "google/api/annotations.proto";
+
+service Echo {
+    rpc Say(SayRequest) returns (SayReply) {
+        option (google.api.http) = {
+          post: "/v1/echo/say"
+          body: "*"
+        };
+    }
+}
+
+message SayRequest {
+    string name = 1;
+}
+
+message SayReply {
+    string message = 1;
+}
