@@ -33,7 +33,7 @@ func main() {
 	// Create a gRPC server object
 	s := grpc.NewServer()
 	// Attach the Greeter service to the server
-	gw.RegisterHelloWordServer(s, &server{})
+	gw.RegisterHelloWordServer(s, NewServer())
 	// Serve gRPC server
 	log.Println("Serving gRPC on 0.0.0.0:8080")
 	go func() {
